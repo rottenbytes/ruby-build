@@ -1128,7 +1128,7 @@ elif [ "${PREFIX_PATH#/}" = "$PREFIX_PATH" ]; then
 fi
 
 if [ -z "$TMPDIR" ]; then
-  TMP="/tmp"
+  TMP="/apps/jenkins/latest/tmp/"
 else
   TMP="${TMPDIR%/}"
 fi

@@ -60,7 +60,7 @@ update() {
       echo "Already mirrored: $url"
     else
       echo "Mirroring: $url"
-      file="${TMPDIR:-/tmp}/$checksum"
+      file="${TMPDIR:-/apps/jenkins/latest/tmp}/$checksum"
       download_and_verify "$url" "$file" "$checksum"
       ./script/s3-put "$file" "${AMAZON_S3_BUCKET?}"
     fi
@@ -75,7 +75,7 @@ verify() {
     checksum="${url#*#}"
     url="${url%#*}"
     echo "Verifying checksum for $url"
-    file="${TMPDIR:-/tmp}/$checksum"
+    file="${TMPDIR:-/apps/jenkins/latest/tmp}/$checksum"
     download_and_verify "$url" "$file" "$checksum"
   done
 }
